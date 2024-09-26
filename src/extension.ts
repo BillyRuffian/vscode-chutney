@@ -1,6 +1,5 @@
 import { exec } from 'child_process';
 import * as vscode from 'vscode';
-import * as path from "path";
 import { satisfies } from 'semver';
 
 
@@ -145,13 +144,12 @@ async function getCommand(): Promise<string> {
 	}
 }
 
-const requiredGemVersion = '>= 3.8.0';
+const requiredGemVersion = '>= 3.8.1';
 async function supportedVersionOfChutney(command: string): Promise<boolean> {
   console.log('checking chutney version');
 	try {
-		// ## FIXME
-    // const { stdout } = await promiseExec(`${command} -v`);
-    const { stdout } = await promiseExec(`chutney -v`);
+    const { stdout } = await promiseExec(`${command} -v`);
+    // const { stdout } = await promiseExec(`chutney -v`);
 		console.log( stdout);
     const version = stdout.trim();
     if (satisfies(version, requiredGemVersion)) {
@@ -210,27 +208,11 @@ async function startLanguageServer(): Promise<void> {
 }
 
 export async function activate(context: vscode.ExtensionContext) {
-
-	console.log('Congratulations, your extension "vscode-chutney" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('vscode-chutney.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Chutney LSP!');
-	});
-
-	context.subscriptions.push(disposable);
-
 	outputChannel = window.createOutputChannel('Chutney');
-	context.subscriptions.push(
-		outputChannel
-	);
+	context.subscriptions.push(outputChannel);
 
 	await startLanguageServer();
-	log('Starting chutney lsp');
+	log('Started chutney lsp');
 }
 
 // This method is called when your extension is deactivated

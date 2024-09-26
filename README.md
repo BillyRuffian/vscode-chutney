@@ -1,71 +1,37 @@
-# vscode-chutney README
+# vscode-chutney 
 
-This is the README for your extension "vscode-chutney". After writing up a brief description, we recommend including the following sections.
+This is the official VS Code extension for [Chutney](https://www.usechutney.com/), a ruby based linter for Cucumber / Gherkin feature files.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension supports the fast linting of your Gherkin files, checking for best practice so you can BDD / ATDD in a manintainable way.
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+On open and save, the feature file will be evaluated for any bad patterns and these will be highlighted in the editor.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Chutney is distributed as a Ruby [gem](https://rubygems.org/gems/chutney), so you will need both Ruby and Chutney installed on your system.
 
-## Extension Settings
+* Ruby >= 3.2
+* Chutney >= 3.8.1
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+If you have a Ruby project with a Gemfile (e.g. a Ruby-Cucumber test pack) the bundled version of chutney will be used, otherwise it will fallback to a system version.
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+None known.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+First release.
 
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Initial release of the Chutney LSP VS Code Extension.
 
 ---
 
-## Following extension guidelines
+## Acknowledgements
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension was heavily influenced by the [Rubocop extension](https://github.com/rubocop/vscode-rubocop).
