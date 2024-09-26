@@ -4,6 +4,7 @@
   "description": "Chutney lints your Cucumber / Gherkin feature files to help you write beautiful specifications",
   "icon": "mr_pickle.png",
   "version": "1.0.0",
+  "publisher": "NigelBrookes-Thomas",
   "repository": {
     "type": "git",
     "url": "https://github.com/BillyRuffian/vscode-chutney.git"
